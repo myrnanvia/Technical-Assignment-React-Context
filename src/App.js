@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+
+import Counter from './Counter';
+import ViewCounter from './ViewCounter';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Routes>
+          <Route path="/view" element={<ViewCounter />} />
+          <Route path="/" element={<Counter />} />
+        </Routes>
+
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Set Counter</Link>
+            </li>
+            <li>
+              <Link to="/view">View Counter</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }
